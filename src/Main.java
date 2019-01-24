@@ -19,37 +19,43 @@ public class Main {
             }
 
             System.out.println("\nDezToBin8");
+            String strEnde = "";
 
-            System.out.print("\nBitte Zahl im Dezimalsystem eingegebn (0..255): ");
-            String strDez = reader.readLine();
-            //String strZahl = System.console().readLine();
-
-
-
-            Integer nDez = Integer.parseInt(strDez);
-
-            if ((nDez >= 0) && (nDez < 256))
+            while (strEnde != "e")
             {
-              String strBin = "";
-                Integer nMod = 0;
-                Integer nDiv = nDez;
+                System.out.print("\nBitte Zahl im Dezimalsystem eingegebn (0..255): ");
+                String strDez = reader.readLine();
+                //String strZahl = System.console().readLine();
 
-              for (int i=0; i<8; i++)
-              {
-                  nMod = nDiv % 2;
-                  nDiv = nDiv / 2;
-                  strBin = nMod.toString() + strBin;
-              }
 
-              System.out.println(strDez + " lautet im Binärsystem: " + strBin);
-            }
-            else if (nDez < 0)
-            {
-                System.out.println("Fehler, Zahl zu klein!");
-            }
-            else
-            {
-                System.out.println("Fehler, Zahl zu groß!");
+                Integer nDez = Integer.parseInt(strDez);
+
+                if ((nDez >= 0) && (nDez < 256))
+                {
+                    String strBin = "";
+                    Integer nMod = 0;
+                    Integer nDiv = nDez;
+
+                    for (int i=0; i<8; i++)
+                    {
+                        nMod = nDiv % 2;
+                        nDiv = nDiv / 2;
+                        strBin = nMod.toString() + strBin;
+                    }
+
+                    System.out.println(strDez + " lautet im Binärsystem: " + strBin);
+                }
+                else if (nDez < 0)
+                {
+                    System.out.println("Fehler, Zahl zu klein!");
+                }
+                else
+                {
+                    System.out.println("Fehler, Zahl zu groß!");
+                }
+
+                System.out.print("Programm be(e)nden? ");
+                strEnde = reader.readLine();
             }
 
         }
